@@ -11,6 +11,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -116,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         //Log.i( "BT", "Location changed: " + location.getLatitude() + " - " + location.getLongitude() );
 
         if ( mMap != null ) {
-            LatLng newpos = new LatLng( location.getLatitude(), location.getLongitude() );
+            final LatLng newpos = new LatLng( location.getLatitude(), location.getLongitude() );
             mMap.animateCamera( CameraUpdateFactory.newLatLngZoom( newpos, 15.0f ) );
 
             GeocodingRequest.makeRequest( location, new GeocodingRequest.GeocodingResponseHandler()
