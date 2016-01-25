@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick( View view )
             {
                 Log.i( "BT", "Trying to get location" );
-                //Snackbar.make( view, "Replace with your own action", Snackbar.LENGTH_LONG ).setAction( "Action", null ).show();
-                onLocationChanged( _locman.getLastKnownLocation( _provider ) );
+                Snackbar.make( view, "This DID do something, at one point.", Snackbar.LENGTH_LONG ).setAction( "Action", null ).show();
+                //onLocationChanged( _locman.getLastKnownLocation( _provider ) );
             }
         } );
 
