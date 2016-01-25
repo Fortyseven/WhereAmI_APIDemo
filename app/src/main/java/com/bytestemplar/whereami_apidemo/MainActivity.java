@@ -22,9 +22,9 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-
-import okhttp3.OkHttpClient;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener
 {
@@ -130,6 +130,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         public void run()
                         {
                             _location_label.setText( response );
+                            mMap.clear();
+                            mMap.addMarker( new MarkerOptions()
+                                                    .position( newpos )
+                                                    .title( response )
+                                                    .icon( BitmapDescriptorFactory.defaultMarker( BitmapDescriptorFactory.HUE_AZURE ) ) );
                         }
                     } );
 
