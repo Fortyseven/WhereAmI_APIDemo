@@ -118,9 +118,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         if ( mMap != null ) {
             LatLng newpos = new LatLng( location.getLatitude(), location.getLongitude() );
             mMap.animateCamera( CameraUpdateFactory.newLatLngZoom( newpos, 15.0f ) );
-            //_location_label.setText( newpos.toString() );
-            GeocodingRequest geo = new GeocodingRequest();
-            geo.makeRequest( location, new GeocodingRequest.GeocodingResponseHandler()
+
+            GeocodingRequest.makeRequest( location, new GeocodingRequest.GeocodingResponseHandler()
             {
                 @Override
                 public void onGeocodingResponse( final String response )

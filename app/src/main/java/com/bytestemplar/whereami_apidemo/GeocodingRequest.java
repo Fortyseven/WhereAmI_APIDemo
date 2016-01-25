@@ -22,15 +22,15 @@ import okhttp3.Response;
  */
 public class GeocodingRequest
 {
-    private final       String    GM_API_KEY = "AIzaSyCMOf7KXK3BgVT_rXPiFuNpF8aSuyog5C0";
-    public static final MediaType JSON       = MediaType.parse( "application/json; charset=utf-8" );
+    private static final String    GM_API_KEY = "AIzaSyCMOf7KXK3BgVT_rXPiFuNpF8aSuyog5C0";
+    private static final MediaType JSON       = MediaType.parse( "application/json; charset=utf-8" );
 
     public interface GeocodingResponseHandler
     {
         void onGeocodingResponse( String response );
     }
 
-    public void makeRequest( Location loc, final GeocodingResponseHandler callback )
+    public static void makeRequest( Location loc, final GeocodingResponseHandler callback )
     {
         OkHttpClient client       = new OkHttpClient();
         RequestBody  request_body = RequestBody.create( JSON, "" );
@@ -66,7 +66,7 @@ public class GeocodingRequest
         } );
     }
 
-    private String parseJSONResponse( String json ) throws JSONException
+    private static String parseJSONResponse( String json ) throws JSONException
     {
         JSONObject root    = new JSONObject( json );
         JSONArray  results = root.getJSONArray( "results" );
