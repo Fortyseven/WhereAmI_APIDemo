@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onLocationChanged( Location location )
     {
-        Log.i( "BT", "Location changed: " + location.getLatitude() + " - " + location.getLongitude() );
+        //Log.i( "BT", "Location changed: " + location.getLatitude() + " - " + location.getLongitude() );
 
         if ( mMap != null ) {
             LatLng newpos = new LatLng( location.getLatitude(), location.getLongitude() );
